@@ -84,8 +84,9 @@ impl Flip {
 
 impl Tello {
     pub fn new() -> Result<Self, std::io::Error> {
-        let command_socket = UdpSocket::bind("0.0.0.0:9009")?;
-        let state_socket = UdpSocket::bind("0.0.0.0:8890")?;
+        //@todo make dynamic
+        let command_socket = UdpSocket::bind("192.168.10.2:8889")?;
+        let state_socket = UdpSocket::bind("192.168.10.2:8890")?;
 
         command_socket.set_nonblocking(true)?;
         state_socket.set_nonblocking(true)?;
